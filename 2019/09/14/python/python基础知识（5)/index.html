@@ -1,0 +1,940 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="###python 文件I/O  输出 1print &amp;apos;内容&amp;apos;  输入1、raw_input()//从标准输入读取一个行，并返回一个字符串（去掉结尾的换行符）,若输入为python表达式，则会返回表达式原式而不是运算结果。 1s=raw_input(&amp;apos;Enter a number:&amp;apos;)  2、input()// input 可以接收一个Python表达式作为">
+<meta property="og:type" content="article">
+<meta property="og:title" content="hf1dw&#39;s blogs">
+<meta property="og:url" content="http://yoursite.com/2019/09/14/python/python基础知识（5)/index.html">
+<meta property="og:site_name" content="hf1dw&#39;s blogs">
+<meta property="og:description" content="###python 文件I/O  输出 1print &amp;apos;内容&amp;apos;  输入1、raw_input()//从标准输入读取一个行，并返回一个字符串（去掉结尾的换行符）,若输入为python表达式，则会返回表达式原式而不是运算结果。 1s=raw_input(&amp;apos;Enter a number:&amp;apos;)  2、input()// input 可以接收一个Python表达式作为">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9223646-d8ecc1a68db23174.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9223646-be36280a05735390.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2019-09-14T07:49:22.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="hf1dw&#39;s blogs">
+<meta name="twitter:description" content="###python 文件I/O  输出 1print &amp;apos;内容&amp;apos;  输入1、raw_input()//从标准输入读取一个行，并返回一个字符串（去掉结尾的换行符）,若输入为python表达式，则会返回表达式原式而不是运算结果。 1s=raw_input(&amp;apos;Enter a number:&amp;apos;)  2、input()// input 可以接收一个Python表达式作为">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/9223646-d8ecc1a68db23174.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"right","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/09/14/python/python基础知识（5)/">
+
+
+
+
+
+  <title> | hf1dw's blogs</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+	<a href="https://github.com/hf1dw"><img width="100" height="100" src="https://github.blog/wp-content/uploads/2008/12/forkme_right_darkblue_121621.png?resize=149%2C149" class="attachment-full size-full" alt="Fork me on GitHub" data-recalc-dims="1"></a>
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">hf1dw's blogs</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">studying,reading,thinking</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+            About
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/14/python/python基础知识（5)/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="hf1dw">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/blog-logo.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="hf1dw's blogs">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline"></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-09-14T16:08:01+08:00">
+                2019-09-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>###python 文件I/O</p>
+<ul>
+<li><p>输出</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print &apos;内容&apos;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>输入<br>1、raw_input()<br>//从标准输入读取一个行，并返回一个字符串（去掉结尾的换行符）,若输入为python表达式，则会返回表达式原式而不是运算结果。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">s=raw_input(&apos;Enter a number:&apos;)</span><br></pre></td></tr></table></figure>
+
+<p>2、input()<br>// input 可以接收一个Python表达式作为输入，并将运算结果返回。 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">s=input(&apos;Enter something:&apos;)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>打开文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">file object = open(file_name [, access_mode][, buffering])</span><br><span class="line"></span><br><span class="line">    file_name：file_name变量是一个包含了你要访问的文件名称的字符串值。</span><br><span class="line">    access_mode：access_mode决定了打开文件的模式：只读，写入，追加等。所有可取值见如下的完全列表。这个参数是非强制的，默认文件访问模式为只读(r)。</span><br><span class="line">    buffering:如果buffering的值被设为0，就不会有寄存。如果buffering的值取1，访问文件时会寄存行。如果将buffering的值设为大于1的整数，表明了这就是寄存区的缓冲大小。如果取负值，寄存区的缓冲大小则为系统默认。</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<blockquote>
+<p><img src="https://upload-images.jianshu.io/upload_images/9223646-d8ecc1a68db23174.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt></p>
+<ul>
+<li>file 对象属性<br><img src="https://upload-images.jianshu.io/upload_images/9223646-be36280a05735390.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt></li>
+<li>file 对象方法<br>1、close()<br>// File 对象的 close（）方法刷新缓冲区里任何还没写入的信息，并关闭该文件，这之后便不能再进行写入；当一个文件对象的引用被重新指定给另一个文件时，Python 会关闭之前的文件。用 close（）方法关闭文件是一个很好的习惯。 </li>
+</ul>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">文件名.close()</span><br></pre></td></tr></table></figure>
+
+<p>2、write()<br>//可将任何字符串写入一个打开的文件。需要重点注意的是，Python字符串可以是二进制数据，而不是仅仅是文字；write()方法不会在字符串的结尾添加换行符(‘\n’)。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">fo=open(&apos;文件名&apos;,&apos;w&apos;)</span><br><span class="line">fo.write(需写入的字符串)</span><br><span class="line">fo.close()</span><br></pre></td></tr></table></figure>
+
+<p>3、read()<br>//从一个打开的文件中读取一个字符串。需要重点注意的是，Python字符串可以是二进制数据，而不是仅仅是文字。在这里，被传递的参数是要从已打开文件中读取的字节计数。该方法从文件的开头开始读入，如果没有传入count，它会尝试尽可能多地读取更多的内容，很可能是直到文件的末尾。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">文件名.read([需要读取的字节数])</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>文件定位<br>// tell()方法告诉你文件内的当前位置, 换句话说，下一次的读写会发生在文件开头这么多字节之后。<br>seek（offset [,from]）方法改变当前文件的位置。Offset变量表示要移动的字节数。From变量指定开始移动字节的参考位置。<br>如果from被设为0，这意味着将文件的开头作为移动字节的参考位置。如果设为1，则使用当前的位置作为参考位置。如果它被设为2，那么该文件的末尾将作为参考位置。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">文件名.tell()：告诉文件内的当前位置</span><br><span class="line">文件名.seek(要移动的字节数，开始移动字节的参考位置)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>重命名和删除文件<br>1、rename()</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">import os</span><br><span class="line">os.rename(当前文件名，新文件名)</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p>2、remove(文件名)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">import os</span><br><span class="line">os.ramove(文件名)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>python里的目录<br>1、mkdir()<br>//可以使用os模块的mkdir()方法在当前目录下创建新的目录们。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">import os</span><br><span class="line">os.mkdir(新目录名)</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p>2、chdir()<br>//改变当前的目录.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">import os</span><br><span class="line">os.chdir(想要跳转到的目录名)</span><br></pre></td></tr></table></figure>
+
+<p>3、getcwd()<br>//显示当前的工作目录</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">import os</span><br><span class="line">print os.getcwd()</span><br></pre></td></tr></table></figure>
+
+<p>4、rmdir()<br>//删除某个目录，目录的完全合规的名称必须被给出，否则会在当前目录下搜索该目录。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">import os</span><br><span class="line">os.rmdir(要删除的目录名)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>文件方法<br>1、file.close()：关闭文件，关闭后文件不能再进行读写操作；<br>2、file.flush()：刷新文件内部缓冲，直接把内部缓冲区的数据立刻写入文件，而不是被动的等待输出缓冲区写入。<br>3、file.fileno()：返回一个整型的文件描述符，可以用在os模块的read方法等一些底层操作上。<br>4、file.isatty()：如果文件连接到一个终端设备返回 True，否则返回 False。<br>5、file.next()：返回文件下一行。<br>6、file.read([size])：从文件读取指定的字节数，如果未给定或为负则读取所有。<br>7、file.readline([size])：读取整行，包括’\n’字符。<br>8、file.readlines([sizehint])：读取所有行并返回列表，若给定的sizehint&gt;0，则表明一次读取多少行。<br>9、file.seek[需要偏移的字节[,偏移初始位置]：设置文件当前位置。<br>10、file.tell()：返回文件当前位置。<br>11、file.truncate([size])：截取文件，截取的字节通过size指定，默认为当前文件位置。<br>12、file.write(str)：将字符串写入文件，没有返回值。<br>13、file.writelines(sequence)：向文件写入一个字符串列表，如果需要换行则自己加入每行的换行符。</p>
+<h3 id="python-内置函数"><a href="#python-内置函数" class="headerlink" title="python 内置函数"></a>python 内置函数</h3></li>
+<li><p>abs()<br>返回数字的绝对值</p>
+</li>
+<li><p>divmod()<br>把除数和余数运算结果结合起来，返回一个包含商和余数的元组(a // b, a % b)</p>
+</li>
+<li><p>input()<br>input() 和 raw_input() 这两个函数均能接收字符串 ，但 raw_input() 直接读取控制台的输入（任何类型的输入它都可以接收）。而对于 input() ，它希望能够读取一个合法的 python 表达式，即你输入字符串的时候必须使用引号将它括起来，否则它会引发一个 SyntaxError 。<br>除非对 input() 有特别需要，否则一般情况下我们都是推荐使用 raw_input() 来与用户交互。</p>
+</li>
+<li><p>open()<br>打开一个文件</p>
+</li>
+<li><p>staticmethod()<br>返回函数的静态方法</p>
+</li>
+<li><p>all()<br>用于判断给定的可迭代参数 iterable 中的所有元素是否都为 TRUE，如果是返回 True，否则返回 False。元素除了是 0、空、FALSE 外都算 TRUE。空元组、空列表返回值为True。</p>
+</li>
+<li><p>enumerate()<br>将一个可遍历的数据对象(如列表、元组或字符串)组合为一个索引序列，同时列出数据和数据下标，一般用在 for 循环当中。</p>
+</li>
+<li><p>int()<br>将一个字符串或数字转换为整型。</p>
+</li>
+<li><p>ord()<br>chr() 函数（对于8位的ASCII字符串）或 unichr() 函数（对于Unicode对象）的配对函数，它以一个字符（长度为1的字符串）作为参数，返回对应的 ASCII 数值，或者 Unicode 数值，如果所给的 Unicode 字符超出了你的 Python 定义范围，则会引发一个 TypeError 的异常。</p>
+</li>
+<li><p>str()<br>将对象转化为适于人阅读的形式。</p>
+</li>
+<li><p>any()<br>判断给定的可迭代参数 iterable 是否全部为 False，则返回 False，如果有一个为 True，则返回 True。元素除了是 0、空、FALSE 外都算 TRUE。空元组、空列表返回值为False。</p>
+</li>
+<li><p>eval()<br>用来执行一个字符串表达式，并返回表达式的值.<br>//eval 方法能使字符串本身的引号去掉，保留字符的原本属性。</p>
+</li>
+<li><p>isinstance()<br>判断一个对象是否是一个已知的类型，类似 type()。<br>//    isinstance() 与 type() 区别：<br>type() 不会认为子类是一种父类类型，不考虑继承关系。<br>isinstance() 会认为子类是一种父类类型，考虑继承关系。<br>如果要判断两个类型是否相同推荐使用 isinstance()。</p>
+</li>
+<li><p>pow()<br>返回 x^y（x的y次方） 的值。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">对于内置pow()：pow(x,y[,z])</span><br><span class="line">对于math模块：pow(x,y)</span><br><span class="line">函数是计算x的y次方，如果z在存在，则再对结果进行取模，其结果等效于pow(x,y) %z;</span><br><span class="line">pow() 通过内置的方法直接调用，内置方法会把参数作为整型，而 math 模块则会把参数转换为 float。</span><br><span class="line">pow(x,y)==x**y</span><br><span class="line">pow(x,y[,z])==x**y%z</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>sum()<br>对系列进行求和计算。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sum(iterable[,start])</span><br><span class="line">iterable：可迭代对象，如：列表、元组、集合。</span><br><span class="line">start：指定相加的参数，如果没有设置这个值，默认为0。</span><br><span class="line">sum([1,2,3],2)=8</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>basestring()<br>str 和 unicode 的超类（父类），也是抽象类，因此不能被调用和实例化，但可以被用来判断一个对象是否为 str 或者 unicode 的实例，isinstance(obj, basestring) 等价于 isinstance(obj, (str, unicode))。</p>
+</li>
+<li><p>execfile()<br>执行文件内的内容</p>
+</li>
+<li><p>issubclass()</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">issubclass(class,classinfo)</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p>如果 class 是 classinfo 的子类返回 True，否则返回 False。</p>
+<ul>
+<li><p>print()<br>打印输出</p>
+</li>
+<li><p>super()<br>调用父类的一个方法</p>
+</li>
+<li><p>bin()<br>返回一个整数(int)或者长整数(long int)的二进制形式.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bin(X)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>file()<br>创建一个file对象</p>
+</li>
+<li><p>iter()<br>生成迭代器</p>
+</li>
+<li><p>property()<br>在新式类中返回属性值。</p>
+</li>
+<li><p>tuple()<br>将列表转换为元组</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tuple(列表)</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p>//对于字典则会返回由键名组成元组，对于元组则会返回本身。</p>
+<ul>
+<li>bool()<br>将给定参数转换为布尔类型，如果没有参数，返回 False。<br>//bool是int的子类</li>
+<li>filter()<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">filter(函数名，序列)</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p>filter() 函数用于过滤序列，过滤掉不符合条件的元素，返回由符合条件元素组成的新列表。<br>该接收两个参数，第一个为函数，第二个为序列，序列的每个元素作为参数传递给函数进行判，然后返回 True 或 False，最后将返回 True 的元素放到新列表中。</p>
+<ul>
+<li>len()<br>返回对象（字符、列表、元组等）长度或项目个数.</li>
+<li>range()<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">range(开始，结束，间隔数)</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p>//间隔数默认为1，开始位置默认为0，只含两个参数时，若后面一个参数小于前面一个参数，则返回 [ ]。<br>创建一个整数列表，一般用在 for 循环中.</p>
+<ul>
+<li><p>type()<br>如果你只有第一个参数则返回对象的类型，三个参数返回新的类型对象。<br>//    isinstance() 与 type() 区别：<br>1、type() 不会认为子类是一种父类类型，不考虑继承关系。<br>2、isinstance() 会认为子类是一种父类类型，考虑继承关系。<br>如果要判断两个类型是否相同推荐使用 isinstance()。</p>
+</li>
+<li><p>bytearray()<br>返回一个新字节数组。这个数组里的元素是可变的，并且每个元素的值范围: 0 &lt;= x &lt; 256。</p>
+</li>
+<li><p>float()<br>将整数和字符串转换成浮点数。</p>
+</li>
+<li><p>list()<br>将元组转化为列表<br>//元组 ( ) 中的值无法修改，列表 [ ] 中的值可修改。</p>
+</li>
+<li><p>raw_input()<br>用来获取控制台的输入，将所有输入作为字符串看待；input可以将输入的表达式进行运算。<br>//raw_input与input后面括号内若给予字符串，则均需要加上 ‘ ‘。</p>
+</li>
+<li><p>unichr<br>返回unicode的字符。<br>//与之相对应的chr()，则根据所给的字符返回对应的ascii码（有一定的范围限制）。</p>
+</li>
+<li><p>callable()<br>检查一个对象是否是可调用的。如果返回True，object仍然可能调用失败；但如果返回False，调用对象ojbect绝对不会成功。<br>//对于函数, 方法, lambda 函式, 类, 以及实现了 <strong>call</strong> 方法的类实例, 它都返回 True。</p>
+</li>
+<li><p><a href="http://www.runoob.com/python/att-string-format.html" target="_blank" rel="noopener"><strong>format()</strong></a><br>增强了字符串格式化的功能。基本语法是通过 {} 和 : 来代替以前的 %；format 函数可以接受不限个参数，位置可以不按顺序。</p>
+</li>
+<li><p>locals()<br>以字典类型返回当前位置的全部局部变量。对于函数, 方法, lambda 函式, 类, 以及实现了 <strong>call</strong> 方法的类实例, 它都返回 True。 </p>
+</li>
+<li><p>reduce()<br>对参数序列中元素进行累积。函数将一个数据集合（链表，元组等）中的所有数据进行下列操作：用传给 reduce 中的函数 function（有两个参数）先对集合中的第 1、2 个元素进行操作，得到的结果再与第三个数据用 function 函数运算，最后得到一个结果。<br>//在 Python3 中，reduce() 函数已经被从全局名字空间里移除了，它现在被放置在 fucntools 模块里，如果想要使用它，则需要通过引入 <strong>functools</strong> 模块来调用 reduce() 函数。</p>
+</li>
+<li><p>chr()<br>用一个范围在 range（256）内的（就是0～255）整数作参数，返回一个对应的字符。<br>//chr(i)中的 i 既可以是十进制又可以是十六进制。</p>
+</li>
+<li><p>frozenset()<br>返回一个冻结的集合，冻结后集合不能再添加或删除任何元素。</p>
+</li>
+<li><p>long()<br>将数字或字符串转换为一个长整型。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">long(x,base=10)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>reload()<br>重新载入之前载入的模块。</p>
+</li>
+<li><p>vars()<br>返回对象object的属性和属性值的字典对象，如果没有参数，就打印当前调用位置的属性和属性值类似 locals()。</p>
+</li>
+<li><p>classmethod修饰符<br>classmethod 修饰符对应的函数不需要实例化，不需要 self 参数，但第一个参数需要是表示自身类的 cls 参数，可以来调用类的属性，类的方法，实例化对象等。</p>
+</li>
+<li><p>getattr()<br>返回一个对象属性值。</p>
+</li>
+<li><p>map()<br>根据提供的函数对指定序列做映射。第一个参数 function 以参数序列中的每一个元素调用 function 函数，返回包含每次 function 函数返回值的新列表。</p>
+</li>
+<li><p>repr()<br>将对象转化为供解释器读取的形式，返回一个对象的 string 格式。</p>
+</li>
+<li><p>xrange()<br>用法与range()类似，只是生成的不是一个数组，而是一个生成器。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">list(xrange(10))==range(10)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>cmp()<br>用于比较2个对象，如果 x &lt; y 返回 -1, 如果 x == y 返回 0, 如果 x &gt; y 返回 1。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cmp(x,y)</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p>//python3中使用的是operator模块</p>
+<ul>
+<li><p>globals()<br>以字典类型返回当前位置的全部全局变量；包括所有导入的变量。</p>
+</li>
+<li><p>max()<br>返回给定参数的最大值，参数可以为序列。</p>
+</li>
+<li><p>reverse()<br>该方法没有返回值，但是会对列表的元素进行反向排序。</p>
+</li>
+<li><p>zip()<br>用于将可迭代的对象作为参数，将对象中对应的元素打包成一个个元组，然后返回由这些元组组成的列表。如果各个迭代器的元素个数不一致，则返回列表长度与最短的对象相同，利用 * 号操作符，可以将元组解压为列表。</p>
+</li>
+<li><p>compile()<br>将一个字符串编译为字节代码；返回表达式执行结果。</p>
+</li>
+<li><p>hasattr()<br>用于判断对象是否包含对应的属性；如果对象有该属性返回 True，否则返回 False。</p>
+</li>
+<li><p>memoryview()<br>返回给定参数的内存查看对象(Momory view)。所谓内存查看对象，是指对支持缓冲区协议的数据进行包装，在不需要复制对象基础上允许Python代码访问。</p>
+</li>
+<li><p>round()<br>返回浮点数x的四舍五入值。<br>//python2中是保留值将保留到离上一位更近的一端（四舍六入），如果距离两端一样远，则保留到离0远的一边。所以round(0.5)会近似到1，而round(-0.5)会近似到-1。<br>python3中是如果距离两边一样远，会保留到偶数的一边。比如round(0.5)和round(-0.5)都会保留到0，而round(1.5)会保留到2。</p>
+</li>
+<li><p>__ import __()<br>用于动态加载类和函数 。如果一个模块经常变化就可以使用 __ import __() 来动态载入</p>
+</li>
+<li><p>complex()<br>用于创建一个值为 real + imag * j 的复数或者转化一个字符串或数为复数。如果第一个参数为字符串，则不需要指定第二个参数。</p>
+</li>
+<li><p>hash()<br>获取取一个对象（字符串或者数值等）的哈希值。<br>//函数可以应用于数字、字符串和对象，不能直接应用于 list、set、dictionary。在 hash() 对对象使用时，所得的结果不仅和对象的内容有关，还和对象的 id()，也就是内存地址有关。 </p>
+</li>
+<li><p>min()<br>返回给定参数的最小值，参数可以为序列；与max()相对应。比较时，从第一个字符开始，第一个相同，比较第二个，依次类推。</p>
+</li>
+<li><p>set()<br>创建一个无序不重复元素集，可进行关系测试，删除重复数据，还可以计算交集、差集、并集等。</p>
+</li>
+<li><p>delattr()<br>删除属性</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">delattr(对象，对象属性)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>help()<br>查看函数或模块用途的详细说明。</p>
+</li>
+<li><p>next()<br>返回迭代器的下一个项目。</p>
+</li>
+<li><p>setattr()<br>设置属性值，该属性必须存在。</p>
+</li>
+<li><p>dict()<br>创建一个字典。</p>
+</li>
+<li><p>hex()<br>将10进制整数转换成16进制，以字符串形式表示。</p>
+</li>
+<li><p>slice()<br>实现切片对象，主要用在切片操作函数里的参数传递。</p>
+</li>
+<li><p>dir()<br>不带参数时，返回当前范围内的变量、方法和定义的类型列表；带参数时，返回参数的属性、方法列表。如果参数包含方法<strong>dir</strong>()，该方法将被调用。如果参数不包含<strong>dir</strong>()，该方法将最大限度地收集参数信息。</p>
+</li>
+<li><p>id()<br>获取对象的内存地址。</p>
+</li>
+<li><p>oct()<br>将一个整数转换成8进制字符串。</p>
+</li>
+<li><p>sorted()<br>对所有可迭代的对象进行排序操作。<br>// sort 与 sorted 区别：sort 是应用在 list 上的方法，sorted 可以对所有可迭代的对象进行排序操作。list 的 sort 方法返回的是对已经存在的列表进行操作，而内建函数 sorted 方法返回的是一个新的 list，而不是在原来的基础上进行的操作。</p>
+</li>
+<li><p>exec()<br>执行储存在字符串或文件中的Python语句，相比于 eval，exec可以执行更复杂的 Python 代码。exec 返回值永远为 None。<br>//在 Python2 中exec不是函数，而是一个内置语句(statement)，但是Python 2中有一个 execfile() 函数。可以理解为 Python 3 把 exec 这个 statement 和 execfile() 函数的功能够整合到一个新的 exec() 函数中去了。<br><a href="https://www.jianshu.com/p/aea896637de5" target="_blank" rel="noopener">上一篇：python基础知识（4）</a><br><a href="https://www.jianshu.com/p/45a2b64abfdc" target="_blank" rel="noopener">下一篇：python基础知识(进阶篇–正则表达式)</a></p>
+</li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/09/14/python/python基础知识（4）/" rel="next" title>
+                <i class="fa fa-chevron-left"></i> 
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/09/14/python/python更新库/" rel="prev" title>
+                 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/blog-logo.jpg" alt="hf1dw">
+            
+              <p class="site-author-name" itemprop="name">hf1dw</p>
+              <p class="site-description motion-element" itemprop="description">Good habits are more important than hard work</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">60</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/hf1dw" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i></a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.jianshu.com/u/41daca7ad841" target="_blank" title="简书">
+                      
+                        <i class="fa fa-fw fa-heartbeat"></i></a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-[object Object]"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">©2019 by hf1dw</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/love.js"></script>

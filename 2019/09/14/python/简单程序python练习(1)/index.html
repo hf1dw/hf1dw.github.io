@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="题目1：有四个数字：1、2、3、4，能组成多少个互不相同且无重复数字的三位数？各是多少？  12345678910#!/user/bin/env python2# -*-coding:utf-8 -*-a=0for i in range(1,5):  for j in range(1,5):    for k in range(1,5):      if (i!=j) and (j!=k) an">
+<meta property="og:type" content="article">
+<meta property="og:title" content="hf1dw&#39;s blogs">
+<meta property="og:url" content="http://yoursite.com/2019/09/14/python/简单程序python练习(1)/index.html">
+<meta property="og:site_name" content="hf1dw&#39;s blogs">
+<meta property="og:description" content="题目1：有四个数字：1、2、3、4，能组成多少个互不相同且无重复数字的三位数？各是多少？  12345678910#!/user/bin/env python2# -*-coding:utf-8 -*-a=0for i in range(1,5):  for j in range(1,5):    for k in range(1,5):      if (i!=j) and (j!=k) an">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-09-14T07:49:22.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="hf1dw&#39;s blogs">
+<meta name="twitter:description" content="题目1：有四个数字：1、2、3、4，能组成多少个互不相同且无重复数字的三位数？各是多少？  12345678910#!/user/bin/env python2# -*-coding:utf-8 -*-a=0for i in range(1,5):  for j in range(1,5):    for k in range(1,5):      if (i!=j) and (j!=k) an">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"right","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/09/14/python/简单程序python练习(1)/">
+
+
+
+
+
+  <title> | hf1dw's blogs</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+	<a href="https://github.com/hf1dw"><img width="100" height="100" src="https://github.blog/wp-content/uploads/2008/12/forkme_right_darkblue_121621.png?resize=149%2C149" class="attachment-full size-full" alt="Fork me on GitHub" data-recalc-dims="1"></a>
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">hf1dw's blogs</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">studying,reading,thinking</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+            About
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/14/python/简单程序python练习(1)/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="hf1dw">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/blog-logo.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="hf1dw's blogs">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline"></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-09-14T16:08:01+08:00">
+                2019-09-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>题目1：有四个数字：1、2、3、4，能组成多少个互不相同且无重复数字的三位数？各是多少？</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">#!/user/bin/env python2</span><br><span class="line"># -*-coding:utf-8 -*-</span><br><span class="line">a=0</span><br><span class="line">for i in range(1,5):</span><br><span class="line">  for j in range(1,5):</span><br><span class="line">    for k in range(1,5):</span><br><span class="line">      if (i!=j) and (j!=k) and (i!=k):</span><br><span class="line">        a+=1</span><br><span class="line">        print i,j,k</span><br><span class="line">print &apos;sum:&apos;,a</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>题目2：企业发放的奖金根据利润提成。利润(I)低于或等于10万元时，奖金可提10%；利润高于10万元，低于20万元时，低于10万元的部分按10%提成，高于10万元的部分，可提成7.5%；20万到40万之间时，高于20万元的部分，可提成5%；40万到60万之间时高于40万元的部分，可提成3%；60万到100万之间时，高于60万元的部分，可提成1.5%，高于100万元时，超过100万元的部分按1%提成，从键盘输入当月利润I，求应发放奖金总数？</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">#!/user/bin/env python2</span><br><span class="line"># -*-coding:utf-8 -*-</span><br><span class="line">i=int(raw_input(&apos;Enter the net profit:&apos;))</span><br><span class="line">arr=[1000000,600000,400000,200000,100000,0]</span><br><span class="line">rat=[0.01,0.015,0.03,0.05,0.075,0.01]</span><br><span class="line">r=0</span><br><span class="line">for idx in range(0,6):</span><br><span class="line">  if i&gt;arr[idx]:</span><br><span class="line">    r+=(i-arr[idx])*rat[idx]</span><br><span class="line">    print arr[idx],(i-arr[idx])*rat[idx]</span><br><span class="line">    i=arr[idx]</span><br><span class="line">print &apos;sum:&apos;,r</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>题目3：一个整数，它加上100后是一个完全平方数，再加上168又是一个完全平方数，请问该数是多少？</p>
+</blockquote>
+<p>//分析：<br>a+100=m^2………..(1)<br>a+100+168=n^2………..(2)<br>(2)-(1),得(n+m)(n-m)=168<br>令i=n+m，j=n-m；<br>则i+j=2n，i-j=2m<br>又有i*j=168<br>得出i，j同为偶数<br>且i&lt;168/2+1=85</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#!/user/bin/env python2</span><br><span class="line"># -*- coding:utf-8 -*-</span><br><span class="line">for i in range(2,85):</span><br><span class="line">  if 168%i==0:</span><br><span class="line">    j=168/i</span><br><span class="line">    if i&gt;j and i%2==0 and j%2==0:</span><br><span class="line">      m=(i-j)/2</span><br><span class="line">      print m*m-100</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>题目4：输入某年某月某日，判断这一天是这一年的第几天？</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">#!/user/bin/env python2</span><br><span class="line"># -*- coding:utf-8 -*-</span><br><span class="line">year=int(raw_input(&apos;year:\n&apos;))</span><br><span class="line">month=int(raw_input(&apos;month:\n&apos;))</span><br><span class="line">day=int(raw_input(&apos;day:\n&apos;))</span><br><span class="line"></span><br><span class="line">months=(0,31,59,90,120,151,181,212,243,273,304,334)</span><br><span class="line">if 0&lt;month&lt;13 and 0&lt;day&lt;32:</span><br><span class="line">  sum=months[month-1]</span><br><span class="line">else:</span><br><span class="line">  print &apos;data error!&apos;</span><br><span class="line"></span><br><span class="line">sum+=day</span><br><span class="line">leap=0</span><br><span class="line">if (year % 400 ==0) or ((year %4==0) and (year %100 !=0)):</span><br><span class="line">  leap=1</span><br><span class="line">if leap==1 and month&gt;2:</span><br><span class="line">  sum+=1</span><br><span class="line">print sum</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>题目5：输入三个整数x,y,z，请把这三个数由小到大输出。</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#!/user/bin/env python2</span><br><span class="line"># -*- coding:utf-8 -*-</span><br><span class="line">l=[]</span><br><span class="line">for i in range(3):</span><br><span class="line">  x=int(raw_input(&apos;interger:\n&apos;))</span><br><span class="line">  l.append(x)</span><br><span class="line">l.sort()</span><br><span class="line">print l</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>题目6：斐波那契数列。</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">#!/user/bin/env python2</span><br><span class="line"># -*- coding:utf-8 -*-</span><br><span class="line">def fib(n):</span><br><span class="line">  a,b=0,1</span><br><span class="line">  for i in range(n-1):</span><br><span class="line">    a,b=b,a+b</span><br><span class="line">  return a</span><br><span class="line">x=int(raw_input(&apos;interger:&apos;))</span><br><span class="line">print x,&quot;&apos;s fib is&quot;,fib(x)</span><br><span class="line">l=[]</span><br><span class="line">for i in range(1,x+1):</span><br><span class="line">  l.append(fib(i))</span><br><span class="line">print &apos;fib:&apos;,l</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>题目7：将一个列表的数据复制到另一个列表中。</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#!/user/bin/env python2</span><br><span class="line"># -*-coding:utf-8 -*-</span><br><span class="line">a=[1,2,3,4,5,6,7]</span><br><span class="line">b=a[:]</span><br><span class="line">print b</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>题目8：输出 9*9 乘法口诀表。</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">#!/user/bin/env python2</span><br><span class="line"># -*-coding:utf-8 -*-</span><br><span class="line">for i in range(1,10):</span><br><span class="line">  print          //打印空格，以分隔开每次循环。</span><br><span class="line">  for j in range(1,i+1):</span><br><span class="line">    print &apos;%d*%d=%d&apos; %(i,j,i*j),</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>题目9：暂停一秒输出。</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#!/user/bin/env python2</span><br><span class="line"># -*-coding:utf-8 -*-</span><br><span class="line">import time</span><br><span class="line"></span><br><span class="line">list=[1,2,3,4,5,6,7,8,9,0]</span><br><span class="line">for i in list:</span><br><span class="line">  print i</span><br><span class="line">  time.sleep(1)      //调用time模块里的sleep()函数</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>题目10：暂停一秒输出，并格式化当前时间。</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">#!/user/bin/env python2</span><br><span class="line"># -*- coding:utf-8 -*-</span><br><span class="line">import time</span><br><span class="line"></span><br><span class="line">for i in range(10):</span><br><span class="line">  print time.strftime(&apos;%Y--%m--%d %H:%M:%S&apos;,time.localtime())      //time模块strftime函数格式化时间</span><br><span class="line">  time.sleep(1)</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/09/14/python/对不合法的字符串的url编码解码脚本/" rel="next" title>
+                <i class="fa fa-chevron-left"></i> 
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/09/14/python/简单程序python练习(2)/" rel="prev" title>
+                 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/blog-logo.jpg" alt="hf1dw">
+            
+              <p class="site-author-name" itemprop="name">hf1dw</p>
+              <p class="site-description motion-element" itemprop="description">Good habits are more important than hard work</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">60</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/hf1dw" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i></a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.jianshu.com/u/41daca7ad841" target="_blank" title="简书">
+                      
+                        <i class="fa fa-fw fa-heartbeat"></i></a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-[object Object]"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">©2019 by hf1dw</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/love.js"></script>
