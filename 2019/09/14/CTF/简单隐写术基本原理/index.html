@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="CTF,隐写,">
 
 
 
@@ -79,12 +79,13 @@
 
 
 
-<meta name="description" content="0X01 简单四则 word中隐藏数据 图像元数据（picase） 安卓数据隐藏（Hide it pro) RAR压缩包数据隐藏  0X02 数字信息隐藏原理 替换LSB修改方式 插入1、追加插入：在JPEG末尾（FF D9）追加数据；2、前置插入：在FF E0和FF C0之间插入数据。JPEG文件格式：     //正常的png图片的文件头的十六进制数据(89 50 4e 47 0d 0a 1a">
+<meta name="description" content="0X01 简单四则 word中隐藏数据 图像元数据（picase） 安卓数据隐藏（Hide it pro) RAR压缩包数据隐藏">
+<meta name="keywords" content="CTF,隐写">
 <meta property="og:type" content="article">
-<meta property="og:title" content="hf1dw&#39;s blogs">
+<meta property="og:title" content="简单隐写术基本原理">
 <meta property="og:url" content="http://yoursite.com/2019/09/14/CTF/简单隐写术基本原理/index.html">
 <meta property="og:site_name" content="hf1dw&#39;s blogs">
-<meta property="og:description" content="0X01 简单四则 word中隐藏数据 图像元数据（picase） 安卓数据隐藏（Hide it pro) RAR压缩包数据隐藏  0X02 数字信息隐藏原理 替换LSB修改方式 插入1、追加插入：在JPEG末尾（FF D9）追加数据；2、前置插入：在FF E0和FF C0之间插入数据。JPEG文件格式：     //正常的png图片的文件头的十六进制数据(89 50 4e 47 0d 0a 1a">
+<meta property="og:description" content="0X01 简单四则 word中隐藏数据 图像元数据（picase） 安卓数据隐藏（Hide it pro) RAR压缩包数据隐藏">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9223646-ca577bbb38bed6e8.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9223646-0a4fcd9d4bcb5949.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
@@ -92,10 +93,10 @@
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9223646-0325a1c388777571.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9223646-fdb557b2554c45b9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/9223646-f9ff7b228ed1dc5b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2019-09-14T07:53:50.824Z">
+<meta property="og:updated_time" content="2019-09-14T08:28:50.150Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="hf1dw&#39;s blogs">
-<meta name="twitter:description" content="0X01 简单四则 word中隐藏数据 图像元数据（picase） 安卓数据隐藏（Hide it pro) RAR压缩包数据隐藏  0X02 数字信息隐藏原理 替换LSB修改方式 插入1、追加插入：在JPEG末尾（FF D9）追加数据；2、前置插入：在FF E0和FF C0之间插入数据。JPEG文件格式：     //正常的png图片的文件头的十六进制数据(89 50 4e 47 0d 0a 1a">
+<meta name="twitter:title" content="简单隐写术基本原理">
+<meta name="twitter:description" content="0X01 简单四则 word中隐藏数据 图像元数据（picase） 安卓数据隐藏（Hide it pro) RAR压缩包数据隐藏">
 <meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/9223646-ca577bbb38bed6e8.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 
@@ -132,7 +133,7 @@
 
 
 
-  <title> | hf1dw's blogs</title>
+  <title>简单隐写术基本原理 | hf1dw's blogs</title>
   
 
 
@@ -276,7 +277,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline"></h1>
+          <h1 class="post-title" itemprop="name headline">简单隐写术基本原理</h1>
         
 
         <div class="post-meta">
@@ -288,7 +289,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-09-14T16:08:00+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-09-14T17:49:46+08:00">
                 2019-09-14
               </time>
             
@@ -298,6 +299,39 @@
             
           </span>
 
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/CTF/" itemprop="url" rel="index">
+                    <span itemprop="name">CTF</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/CTF/misc/" itemprop="url" rel="index">
+                    <span itemprop="name">misc</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -330,9 +364,8 @@
 <li>word中隐藏数据</li>
 <li>图像元数据（picase）</li>
 <li>安卓数据隐藏（Hide it pro)</li>
-<li>RAR压缩包数据隐藏</li>
-</ul>
-<h3 id="0X02-数字信息隐藏原理"><a href="#0X02-数字信息隐藏原理" class="headerlink" title="0X02 数字信息隐藏原理"></a>0X02 数字信息隐藏原理</h3><ul>
+<li>RAR压缩包数据隐藏<a id="more"></a>
+<h3 id="0X02-数字信息隐藏原理"><a href="#0X02-数字信息隐藏原理" class="headerlink" title="0X02 数字信息隐藏原理"></a>0X02 数字信息隐藏原理</h3></li>
 <li>替换<br>LSB修改方式</li>
 <li>插入<br>1、追加插入：在JPEG末尾（FF D9）追加数据；<br>2、前置插入：在FF E0和FF C0之间插入数据。<br>JPEG文件格式：<blockquote>
 <p><img src="https://upload-images.jianshu.io/upload_images/9223646-ca577bbb38bed6e8.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt></p>
@@ -384,6 +417,14 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/CTF/" rel="tag"># CTF</a>
+          
+            <a href="/tags/隐写/" rel="tag"># 隐写</a>
+          
+        </div>
+      
 
       
       
@@ -393,8 +434,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/09/14/CTF/攻防世界--web--新手区/" rel="next" title>
-                <i class="fa fa-chevron-left"></i> 
+              <a href="/2019/09/14/Html/HTML基础知识(2)/" rel="next" title="html基础(2)">
+                <i class="fa fa-chevron-left"></i> html基础(2)
               </a>
             
           </div>
@@ -403,8 +444,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/09/14/Famous-problems/Eight-queens-problem/" rel="prev" title>
-                 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/09/14/CTF/攻防世界--misc--新手区/" rel="prev" title="攻防世界--misc--新手区">
+                攻防世界--misc--新手区 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -475,7 +516,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">60</span>
+                  <span class="site-state-item-count">48</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -486,7 +527,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">43</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
@@ -497,7 +538,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">40</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>

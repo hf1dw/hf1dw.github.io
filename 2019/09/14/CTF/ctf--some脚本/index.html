@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="CTF,脚本,">
 
 
 
@@ -79,17 +79,18 @@
 
 
 
-<meta name="description" content="md5碰撞(misc) 123456789101112#!/user/bin/env python2# -*-coding:utf-8 -*-import hashlib,sysdef getMD5(Cap):    for x in range(1000000,100000000):        captcha=x        MD5=hashlib.md5(str(captcha)).h">
+<meta name="description" content="md5碰撞(misc)123456789101112#!/user/bin/env python2# -*-coding:utf-8 -*-import hashlib,sysdef getMD5(Cap):    for x in range(1000000,100000000):        captcha=x        MD5=hashlib.md5(str(captcha)).he">
+<meta name="keywords" content="CTF,脚本">
 <meta property="og:type" content="article">
-<meta property="og:title" content="hf1dw&#39;s blogs">
+<meta property="og:title" content="ctf--some脚本">
 <meta property="og:url" content="http://yoursite.com/2019/09/14/CTF/ctf--some脚本/index.html">
 <meta property="og:site_name" content="hf1dw&#39;s blogs">
-<meta property="og:description" content="md5碰撞(misc) 123456789101112#!/user/bin/env python2# -*-coding:utf-8 -*-import hashlib,sysdef getMD5(Cap):    for x in range(1000000,100000000):        captcha=x        MD5=hashlib.md5(str(captcha)).h">
+<meta property="og:description" content="md5碰撞(misc)123456789101112#!/user/bin/env python2# -*-coding:utf-8 -*-import hashlib,sysdef getMD5(Cap):    for x in range(1000000,100000000):        captcha=x        MD5=hashlib.md5(str(captcha)).he">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-09-14T07:49:22.000Z">
+<meta property="og:updated_time" content="2019-09-14T08:20:40.752Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="hf1dw&#39;s blogs">
-<meta name="twitter:description" content="md5碰撞(misc) 123456789101112#!/user/bin/env python2# -*-coding:utf-8 -*-import hashlib,sysdef getMD5(Cap):    for x in range(1000000,100000000):        captcha=x        MD5=hashlib.md5(str(captcha)).h">
+<meta name="twitter:title" content="ctf--some脚本">
+<meta name="twitter:description" content="md5碰撞(misc)123456789101112#!/user/bin/env python2# -*-coding:utf-8 -*-import hashlib,sysdef getMD5(Cap):    for x in range(1000000,100000000):        captcha=x        MD5=hashlib.md5(str(captcha)).he">
 
 
 
@@ -125,7 +126,7 @@
 
 
 
-  <title> | hf1dw's blogs</title>
+  <title>ctf--some脚本 | hf1dw's blogs</title>
   
 
 
@@ -269,7 +270,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline"></h1>
+          <h1 class="post-title" itemprop="name headline">ctf--some脚本</h1>
         
 
         <div class="post-meta">
@@ -281,7 +282,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-09-14T16:08:00+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-09-14T17:49:46+08:00">
                 2019-09-14
               </time>
             
@@ -291,6 +292,28 @@
             
           </span>
 
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/CTF/" itemprop="url" rel="index">
+                    <span itemprop="name">CTF</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -320,9 +343,12 @@
 
       
         <ul>
-<li><p>md5碰撞(misc)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">#!/user/bin/env python2</span><br><span class="line"># -*-coding:utf-8 -*-</span><br><span class="line"></span><br><span class="line">import hashlib,sys</span><br><span class="line"></span><br><span class="line">def getMD5(Cap):</span><br><span class="line">    for x in range(1000000,100000000):</span><br><span class="line">        captcha=x</span><br><span class="line">        MD5=hashlib.md5(str(captcha)).hexdigest()</span><br><span class="line">        if MD5[0:6]==Cap:</span><br><span class="line">            return captcha</span><br><span class="line">print getMD5(sys.argv[1])</span><br></pre></td></tr></table></figure>
+<li>md5碰撞(misc)<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">#!/user/bin/env python2</span><br><span class="line"># -*-coding:utf-8 -*-</span><br><span class="line"></span><br><span class="line">import hashlib,sys</span><br><span class="line"></span><br><span class="line">def getMD5(Cap):</span><br><span class="line">    for x in range(1000000,100000000):</span><br><span class="line">        captcha=x</span><br><span class="line">        MD5=hashlib.md5(str(captcha)).hexdigest()</span><br><span class="line">        if MD5[0:6]==Cap:</span><br><span class="line">            return captcha</span><br><span class="line">print getMD5(sys.argv[1])</span><br></pre></td></tr></table></figure>
+
 </li>
+</ul>
+<a id="more"></a>
+<ul>
 <li><p>关于含有大小写字母及数字的凯撒移位(encry)</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">#!/user/bin env python2</span><br><span class="line"># -*-coding:utf-8 -*-</span><br><span class="line"></span><br><span class="line">sr1=&quot;abcdefghijklmnopqrstuvwxyz&quot;</span><br><span class="line">sr2=&quot;ABCDEFGHIJKLMNOPQRSTUVWXYZ&quot;</span><br><span class="line">sr3=&quot;0123456789&quot;</span><br><span class="line">src=sr1+sr1+sr2+sr2</span><br><span class="line">result=&quot;&quot;</span><br><span class="line">str=&quot;LyjtL3fvnSRlo2xvKIjrK2ximSHkJ3ZhJ2Hto3x9&quot;</span><br><span class="line">for a in range(1,27):</span><br><span class="line">    for i in str:</span><br><span class="line">        if i==&quot; &quot;:</span><br><span class="line">            result=result+&quot; &quot;</span><br><span class="line">        elif sr3.find(i)&gt;-1:</span><br><span class="line">            result=result+sr3[sr3.find(i)]</span><br><span class="line">        else:</span><br><span class="line">            j=src.find(i)</span><br><span class="line">            if (j&gt;-1):</span><br><span class="line">                result=result+src[j+a]</span><br><span class="line">print result</span><br></pre></td></tr></table></figure>
 </li>
@@ -358,6 +384,14 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/CTF/" rel="tag"># CTF</a>
+          
+            <a href="/tags/脚本/" rel="tag"># 脚本</a>
+          
+        </div>
+      
 
       
       
@@ -367,14 +401,18 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2019/09/14/Windows/windows命令行常用命令/" rel="next" title="windows常用命令">
+                <i class="fa fa-chevron-left"></i> windows常用命令
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/09/14/CTF/CTF-Web零碎知识整理/" rel="prev" title>
-                 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/09/14/Web/《网络攻防技术与实战》(一)/" rel="prev" title="《网络攻防技术与实战》小结">
+                《网络攻防技术与实战》小结 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -445,7 +483,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">60</span>
+                  <span class="site-state-item-count">48</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -456,7 +494,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">43</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
@@ -467,7 +505,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">40</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>

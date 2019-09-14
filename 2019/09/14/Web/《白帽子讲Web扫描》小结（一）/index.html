@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="《白帽子讲Web扫描》,书籍,">
 
 
 
@@ -79,17 +79,18 @@
 
 
 
-<meta name="description" content="#####web扫描器的原理通过分析HTTP(S)的请求和响应来发现安全问题和架构缺陷 #####web爬虫一种按照一定的规则自动抓取万维网资源的程序或者脚本 #####URL完整格式解析协议：//主机名[:端口]/路径/[;参数][?查询参数]#信息片段eg:http://www.anquanbao.com:80/index.php?id=1#target协议：http主机名：www.anqu">
+<meta name="description" content="#####web扫描器的原理通过分析HTTP(S)的请求和响应来发现安全问题和架构缺陷">
+<meta name="keywords" content="《白帽子讲Web扫描》,书籍">
 <meta property="og:type" content="article">
-<meta property="og:title" content="hf1dw&#39;s blogs">
+<meta property="og:title" content="《白帽子讲Web扫描》小结">
 <meta property="og:url" content="http://yoursite.com/2019/09/14/Web/《白帽子讲Web扫描》小结（一）/index.html">
 <meta property="og:site_name" content="hf1dw&#39;s blogs">
-<meta property="og:description" content="#####web扫描器的原理通过分析HTTP(S)的请求和响应来发现安全问题和架构缺陷 #####web爬虫一种按照一定的规则自动抓取万维网资源的程序或者脚本 #####URL完整格式解析协议：//主机名[:端口]/路径/[;参数][?查询参数]#信息片段eg:http://www.anquanbao.com:80/index.php?id=1#target协议：http主机名：www.anqu">
+<meta property="og:description" content="#####web扫描器的原理通过分析HTTP(S)的请求和响应来发现安全问题和架构缺陷">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-09-14T07:49:21.000Z">
+<meta property="og:updated_time" content="2019-09-14T08:51:44.161Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="hf1dw&#39;s blogs">
-<meta name="twitter:description" content="#####web扫描器的原理通过分析HTTP(S)的请求和响应来发现安全问题和架构缺陷 #####web爬虫一种按照一定的规则自动抓取万维网资源的程序或者脚本 #####URL完整格式解析协议：//主机名[:端口]/路径/[;参数][?查询参数]#信息片段eg:http://www.anquanbao.com:80/index.php?id=1#target协议：http主机名：www.anqu">
+<meta name="twitter:title" content="《白帽子讲Web扫描》小结">
+<meta name="twitter:description" content="#####web扫描器的原理通过分析HTTP(S)的请求和响应来发现安全问题和架构缺陷">
 
 
 
@@ -125,7 +126,7 @@
 
 
 
-  <title> | hf1dw's blogs</title>
+  <title>《白帽子讲Web扫描》小结 | hf1dw's blogs</title>
   
 
 
@@ -269,7 +270,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline"></h1>
+          <h1 class="post-title" itemprop="name headline">《白帽子讲Web扫描》小结</h1>
         
 
         <div class="post-meta">
@@ -281,7 +282,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-09-14T16:08:13+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-09-14T17:49:46+08:00">
                 2019-09-14
               </time>
             
@@ -291,6 +292,39 @@
             
           </span>
 
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/书籍/" itemprop="url" rel="index">
+                    <span itemprop="name">书籍</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/书籍/《白帽子讲Web扫描》/" itemprop="url" rel="index">
+                    <span itemprop="name">《白帽子讲Web扫描》</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -320,7 +354,7 @@
 
       
         <ul>
-<li>#####web扫描器的原理<br>通过分析HTTP(S)的请求和响应来发现安全问题和架构缺陷</li>
+<li>#####web扫描器的原理<br>通过分析HTTP(S)的请求和响应来发现安全问题和架构缺陷<a id="more"></a></li>
 <li>#####web爬虫<br>一种按照一定的规则自动抓取万维网资源的程序或者脚本</li>
 <li>#####URL完整格式解析<br>协议：//主机名[:端口]/路径/[;参数][?查询参数]#信息片段<br>eg:<a href="http://www.anquanbao.com:80/index.php?id=1#target" target="_blank" rel="noopener">http://www.anquanbao.com:80/index.php?id=1#target</a><br>协议：http<br>主机名：<a href="http://www.anquanbao.com" target="_blank" rel="noopener">www.anquanbao.com</a><br>端口：80<br>路径：index.php<br>查询参数:id=1<br>信息片段：target</li>
 <li>#####网页的超链接<br>1、绝对URL的超链接：链接<strong>网络</strong>上的一个站点、网页或其他资源<br>2、相对URL的超链接：链接<strong>同一网站</strong>的资源<br>3、书签：链接同一网页的资源<br>eg:<br>绝对URL超链接：<br><a href="http://www.baidu.com/" target="_blank" rel="noopener"></a><br>相对URL超链接：<br><a href="index.html"></a><br>//以当前页面地址为基点形成超链接<br>index.html表示同一网站的新的页面<br><a href="#top"></a><br>同一页面的超链接，用户点击时会跳到同一页面的top位置</li>
@@ -350,6 +384,14 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/《白帽子讲Web扫描》/" rel="tag"># 《白帽子讲Web扫描》</a>
+          
+            <a href="/tags/书籍/" rel="tag"># 书籍</a>
+          
+        </div>
+      
 
       
       
@@ -359,8 +401,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/09/14/Web/upload-labs/" rel="next" title>
-                <i class="fa fa-chevron-left"></i> 
+              <a href="/2019/09/14/Web/《网络攻防技术与实战》(一)/" rel="next" title="《网络攻防技术与实战》小结">
+                <i class="fa fa-chevron-left"></i> 《网络攻防技术与实战》小结
               </a>
             
           </div>
@@ -369,8 +411,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/09/14/Web/《网络攻防技术与实战》(一)/" rel="prev" title>
-                 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/09/14/Tools/常用工具(资源)/" rel="prev" title="常用工具">
+                常用工具 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -441,7 +483,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">60</span>
+                  <span class="site-state-item-count">48</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -452,7 +494,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">43</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
@@ -463,7 +505,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">40</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
