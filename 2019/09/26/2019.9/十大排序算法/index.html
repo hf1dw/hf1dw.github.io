@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="算法,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="0x01 冒泡排序原理比较相邻的元素。如果第一个比第二个大,就交换他们两个。 对每一对相邻元素做同样的工作,从开始第一对到结尾的最后一对。在这一点,最后的元素应该会是最大的数。">
+<meta name="keywords" content="算法">
+<meta property="og:type" content="article">
+<meta property="og:title" content="十大排序算法">
+<meta property="og:url" content="http://yoursite.com/2019/09/26/2019.9/十大排序算法/index.html">
+<meta property="og:site_name" content="hf1dw&#39;s blogs">
+<meta property="og:description" content="0x01 冒泡排序原理比较相邻的元素。如果第一个比第二个大,就交换他们两个。 对每一对相邻元素做同样的工作,从开始第一对到结尾的最后一对。在这一点,最后的元素应该会是最大的数。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-09-25T10:08:13.925Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="十大排序算法">
+<meta name="twitter:description" content="0x01 冒泡排序原理比较相邻的元素。如果第一个比第二个大,就交换他们两个。 对每一对相邻元素做同样的工作,从开始第一对到结尾的最后一对。在这一点,最后的元素应该会是最大的数。">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"right","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/09/26/2019.9/十大排序算法/">
+
+
+
+
+
+  <title>十大排序算法 | hf1dw's blogs</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+	<a href="https://github.com/hf1dw"><img width="100" height="100" src="https://github.blog/wp-content/uploads/2008/12/forkme_right_darkblue_121621.png?resize=149%2C149" class="attachment-full size-full" alt="Fork me on GitHub" data-recalc-dims="1"></a>
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">hf1dw's blogs</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">studying,reading,thinking</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+            About
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/26/2019.9/十大排序算法/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="hf1dw">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/blog-logo.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="hf1dw's blogs">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">十大排序算法</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-09-26T02:04:47+08:00">
+                2019-09-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/算法/" itemprop="url" rel="index">
+                    <span itemprop="name">算法</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/算法/排序算法/" itemprop="url" rel="index">
+                    <span itemprop="name">排序算法</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="0x01-冒泡排序"><a href="#0x01-冒泡排序" class="headerlink" title="0x01 冒泡排序"></a>0x01 冒泡排序</h3><p>原理<br>比较相邻的元素。如果第一个比第二个大,就交换他们两个。 对每一对相邻元素做同样的工作,从开始第一对到结尾的最后一对。在这一点,最后的元素应该会是最大的数。 <a id="more"></a>针对所有的元素重复以上的步骤,除了最后一个。 持续每次对越来越少的元素重复上面的步骤,直到没有任何一对数字需要比较。</p>
+<!--more-->
+<p>实现代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">def bubblesort(nums):</span><br><span class="line">    for i in range(1,len(nums)):</span><br><span class="line">        for j in range(0,len(nums)-i):</span><br><span class="line">            if nums[j] &gt; nums[j+1]:</span><br><span class="line">                nums[j],nums[j+1] = nums[j+1],nums[j]</span><br><span class="line">    return nums</span><br><span class="line"></span><br><span class="line">print(bubblesort([2,3,1,5,4,7,0,8,0]))</span><br></pre></td></tr></table></figure>
+
+<h3 id="0x02-选择排序"><a href="#0x02-选择排序" class="headerlink" title="0x02 选择排序"></a>0x02 选择排序</h3><p>原理<br>第一次从待排序的数据元素中选出最小（或最大）的一个元素，存放在序列的起始位置，然后再从剩余的未排序元素中寻找到最小（大）元素，然后放到已排序的序列的末尾。以此类推，直到全部待排序的数据元素的个数为零。选择排序是不稳定的排序方法。</p>
+<p>实现代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">def selectsort(nums):</span><br><span class="line">    for i in range(len(nums)-1):</span><br><span class="line">        for j in range(i+1,len(nums)):</span><br><span class="line">            if nums[i] &gt; nums[j]:</span><br><span class="line">                nums[i],nums[j] = nums[j],nums[i]</span><br><span class="line">    return nums</span><br><span class="line"></span><br><span class="line">print(selectsort([3,2,1,5,7,6,9,0]))</span><br></pre></td></tr></table></figure>
+
+<h3 id="0x03-插入排序"><a href="#0x03-插入排序" class="headerlink" title="0x03 插入排序"></a>0x03 插入排序</h3><p>原理<br>从后往前逐个进行比较,找出插入位置,将该元素插入到有序数列的合适位置中。</p>
+<p>实现代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">def insertionsort(nums):</span><br><span class="line">    for i in range(len(nums)):</span><br><span class="line">        a = i-1</span><br><span class="line">        index = nums[i]</span><br><span class="line">        while a &gt;= 0 and nums[a] &gt; index:</span><br><span class="line">            nums[a+1] = nums[a]</span><br><span class="line">            a -= 1</span><br><span class="line">        nums[a+1] = index</span><br><span class="line">    return nums</span><br><span class="line"></span><br><span class="line">print(insertionsort([2,3,4,1,7,6,0,9,8,5]))</span><br></pre></td></tr></table></figure>
+
+<h3 id="0x04-希尔排序"><a href="#0x04-希尔排序" class="headerlink" title="0x04 希尔排序"></a>0x04 希尔排序</h3><p>原理<br>希尔排序是把记录按下标的一定增量分组，对每组使用直接插入排序算法排序；随着增量逐渐减少，每组包含的关键词越来越多，当增量减至1时，整个文件恰被分成一组，算法便终止。<br>一种特殊的插入排序</p>
+<p>实现代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">def shellsort(nums):</span><br><span class="line">    import math</span><br><span class="line">    gap = 1</span><br><span class="line">    while(gap &lt; len(nums)/3):</span><br><span class="line">        gap = gap*3+1</span><br><span class="line">    while gap &gt; 0:</span><br><span class="line">        for i in range(gap,len(nums)):</span><br><span class="line">            temp = nums[i]</span><br><span class="line">            j = i-gap</span><br><span class="line">            while j&gt;=0 and nums[j] &gt; temp:</span><br><span class="line">                nums[j+gap] = nums[j]</span><br><span class="line">                j-=gap</span><br><span class="line">            nums[j+gap] = temp</span><br><span class="line">        gap = int(math.floor(gap/3))</span><br><span class="line">    return nums</span><br><span class="line"></span><br><span class="line">print(shellsort([3,2,1,4,5,7,6,9,0,8]))</span><br></pre></td></tr></table></figure>
+
+<h3 id="0x05-归并排序"><a href="#0x05-归并排序" class="headerlink" title="0x05 归并排序"></a>0x05 归并排序</h3><p>原理<br>已有序的子序列合并，得到完全有序的序列；即先使每个子序列有序，再使子序列段间有序。</p>
+<p>实现代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">def mergesort(nums):</span><br><span class="line">    import math</span><br><span class="line">    if len(nums) &lt; 2:</span><br><span class="line">        return nums</span><br><span class="line">    middle = int(math.floor(len(nums)/2))</span><br><span class="line">    left,right = nums[0:middle],nums[middle:]</span><br><span class="line">    return merge(mergesort(left),mergesort(right))</span><br><span class="line"></span><br><span class="line">def merge(left,right):</span><br><span class="line">    result = []</span><br><span class="line">    while left and right:</span><br><span class="line">        if left[0] &lt; right[0]:</span><br><span class="line">            result.append(left.pop(0));</span><br><span class="line">        else:</span><br><span class="line">            result.append((right.pop(0)));</span><br><span class="line">    while left:</span><br><span class="line">        result.append(left.pop(0));</span><br><span class="line">    while right:</span><br><span class="line">        result.append(right.pop(0));</span><br><span class="line">    return result</span><br><span class="line"></span><br><span class="line">print(mergesort([5,4,3,2,1,6,8,0,9,7]))</span><br></pre></td></tr></table></figure>
+
+<h3 id="0x06-快速排序"><a href="#0x06-快速排序" class="headerlink" title="0x06 快速排序"></a>0x06 快速排序</h3><p>原理<br>通过一趟排序将要排序的数据分割成独立的两部分，其中一部分的所有数据都比另外一部分的所有数据都要小，然后再按此方法对这两部分数据分别进行快速排序，整个排序过程可以递归进行，以此达到整个数据变成有序序列。</p>
+<p>一趟快速排序的算法是:<br>(1)设置两个变量i、j，排序开始的时候：i=0，j=N-1；<br>(2)以第一个数组元素作为关键数据，赋值给<strong>key</strong>，即<strong>key</strong>=A[0]；<br>(3)从j开始向前搜索，即由后开始向前搜索(j–)，找到第一个小于<strong>key</strong>的值A[j]，将A[j]和A[i]的值交换；<br>(4)从i开始向后搜索，即由前开始向后搜索(i++)，找到第一个大于<strong>key</strong>的A[i]，将A[i]和A[j]的值交换；<br>(5)重复第3、4步，直到i=j； (3,4步中，没找到符合条件的值，即3中A[j]不小于<strong>key</strong>,4中A[i]不大于<strong>key</strong>的时候改变j、i的值，使得j=j-1，i=i+1，直至找到为止。找到符合条件的值，进行交换的时候i， j指针位置不变。另外，i==j这一过程一定正好是i+或j-完成的时候，此时令循环结束）</p>
+<p>实现代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">def quicksort(nums):</span><br><span class="line">    if len(nums) &gt;= 2:</span><br><span class="line">        middle = nums[(len(nums)//2)]</span><br><span class="line">        left = []</span><br><span class="line">        right = []</span><br><span class="line">        nums.remove(middle)</span><br><span class="line">        for num in nums:</span><br><span class="line">            if num &gt; middle:</span><br><span class="line">                right.append(num)</span><br><span class="line">            else:</span><br><span class="line">                left.append(num)</span><br><span class="line">        return quicksort(left)+[middle]+quicksort(right)</span><br><span class="line">    else:</span><br><span class="line">        return nums</span><br><span class="line"></span><br><span class="line">print(quicksort([3,2,1,6,5,4,9,7,0,8]))</span><br></pre></td></tr></table></figure>
+
+<h3 id="0x07-堆排序"><a href="#0x07-堆排序" class="headerlink" title="0x07 堆排序"></a>0x07 堆排序</h3><p>原理<br>利用堆这种数据结构而设计的一种排序算法，一种选择排序</p>
+<p>(1)根据初始数组去构造初始堆（构建一个完全二叉树，保证所有的父结点都比它的孩子结点数值大）；<br>(2)每次交换第一个和最后一个元素，输出最后一个元素（最大值），然后把剩下元素重新调整为大根堆；<br>(3)循环第二步，直到当输出完最后一个元素。</p>
+<p>实现代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">def buildmaxheap(nums):</span><br><span class="line">    import math</span><br><span class="line">    for i in range(int(math.floor(len(nums)/2)),-1,-1):</span><br><span class="line">        heapify(nums,i)</span><br><span class="line"></span><br><span class="line">def heapify(nums,i):</span><br><span class="line">    left = 2*i+1</span><br><span class="line">    right = 2*i+2</span><br><span class="line">    largest = i</span><br><span class="line">    if left &lt; numslen and nums[left] &gt; nums[largest]:</span><br><span class="line">        largest = left</span><br><span class="line">    if right &lt; numslen and nums[right] &gt; nums[largest]:</span><br><span class="line">        largest = right</span><br><span class="line"></span><br><span class="line">    if largest != i:</span><br><span class="line">        swap(nums,i,largest)</span><br><span class="line">        heapify(nums,largest)</span><br><span class="line"></span><br><span class="line">def swap(nums,i,j):</span><br><span class="line">    nums[i],nums[j] = nums[j],nums[i]</span><br><span class="line"></span><br><span class="line">def heapsort(nums):</span><br><span class="line">    global numslen</span><br><span class="line">    numslen = len(nums)</span><br><span class="line">    buildmaxheap(nums)</span><br><span class="line">    for i in range(len(nums)-1,0,-1):</span><br><span class="line">        swap(nums,0,i)</span><br><span class="line">        numslen -=1</span><br><span class="line">        heapify(nums,0)</span><br><span class="line">    return nums</span><br><span class="line"></span><br><span class="line">print(heapsort([9,2,3,1,4,5,6,8,0,7]))</span><br></pre></td></tr></table></figure>
+
+<h3 id="0x08-计数排序"><a href="#0x08-计数排序" class="headerlink" title="0x08 计数排序"></a>0x08 计数排序</h3><p>原理<br>对于给定的输入序列中的每一个元素x，确定该序列中值小于等于x的元素的个数（此处并非比较各元素的大小，而是通过对元素值的计数和计数值的累加来确定）。一旦有了这个信息，就可以将x直接存放到最终的输出序列的正确位置上。</p>
+<p>实现代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">def countsort(nums):</span><br><span class="line">    lennums = len(nums)</span><br><span class="line">    nums2 = [None]*lennums</span><br><span class="line">    for i in range(lennums):</span><br><span class="line">        p = 0</span><br><span class="line">        q = 0</span><br><span class="line">        for j in range(lennums):</span><br><span class="line">            if nums[i] &gt; nums[j]:</span><br><span class="line">                p += 1</span><br><span class="line">            elif nums[i] == nums[j]:</span><br><span class="line">                q += 1</span><br><span class="line">        for k in range(p,p+q):</span><br><span class="line">            nums2[k] = nums[i]</span><br><span class="line">    return nums2</span><br><span class="line"></span><br><span class="line">print(countsort([1,3,2,4,5,6,8,7,3,5]))</span><br></pre></td></tr></table></figure>
+
+<h3 id="0x09-桶排序"><a href="#0x09-桶排序" class="headerlink" title="0x09 桶排序"></a>0x09 桶排序</h3><p>原理<br>数组分到有限数量的桶子里。每个桶子再个别排序（有可能再使用别的排序算法或是以递归方式继续使用桶排序进行排序）。</p>
+<p>每个桶相差为1更方便</p>
+<p>实现代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">def bucketsort(nums):</span><br><span class="line">    max_num = max(nums)</span><br><span class="line">    bucket = [0]*(max_num+1)</span><br><span class="line">    sort = []</span><br><span class="line">    for i in nums:</span><br><span class="line">        bucket[i] += 1</span><br><span class="line">    for j in range(len(bucket)):</span><br><span class="line">        if bucket[j] != 0:</span><br><span class="line">            for k in range(bucket[j]):</span><br><span class="line">                sort.append(j)</span><br><span class="line">    return sort</span><br><span class="line"></span><br><span class="line">print(bucketsort([3,2,2,1,0,3,4,7,5,7,6]))</span><br></pre></td></tr></table></figure>
+
+<h3 id="0x10-基数排序"><a href="#0x10-基数排序" class="headerlink" title="0x10 基数排序"></a>0x10 基数排序</h3><p>原理<br>将整数按位数切割成不同的数字，然后按每个位数分别比较。</p>
+<p>1、首先根据个位数的数值，在走访数值时将它们分配至编号0到9的桶子中；<br>2、接下来将这些桶子中的数值按照个位数数值重新串接起来；<br>3、再进行一次分配，这次是根据十位数来分配；<br>4、接下来将这些桶子中的数值重新串接起来；<br>5、重复分配与串联操作，直到最高位为空。</p>
+<p>实现代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">def radixsort(nums):</span><br><span class="line">    i = 0</span><br><span class="line">    max_num = max(nums)</span><br><span class="line">    j = len(str(max_num))</span><br><span class="line">    while i &lt; j:</span><br><span class="line">        bucket = [[] for _ in range(10)]            #这里的_可以换成其他，但是不能用已出现的字符，会产生冲突</span><br><span class="line">        print(&quot;test:&quot;,_)      #会输出9</span><br><span class="line">        for num in nums:</span><br><span class="line">            bucket[int(num/(10**i))%10].append(num)</span><br><span class="line">        nums = []</span><br><span class="line">        for x in bucket:</span><br><span class="line">            for y in x:</span><br><span class="line">                nums.append(y)</span><br><span class="line">        i += 1</span><br><span class="line">    return nums</span><br><span class="line"></span><br><span class="line">print(radixsort([22,1,4,34,76,67,54,48,0,90,78]))</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>桶排序VS计数排序VS基数排序</p>
+<p>桶排序：每个桶存储一定范围的数值；<br>计数排序：每个桶只存储单一键值；<br>基数排序：根据键值的每位数字来分配桶。</p>
+</li>
+</ul>
+<p>参考：<a href="https://sort.hust.cc/" target="_blank" rel="noopener">https://sort.hust.cc/</a></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/算法/" rel="tag"><i class="fa fa-tag"></i> 算法</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/09/15/Tools/基于github使用next主题搭建自己的博客/" rel="next" title="基于github搭建自己的博客">
+                <i class="fa fa-chevron-left"></i> 基于github搭建自己的博客
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/blog-logo.jpg" alt="hf1dw">
+            
+              <p class="site-author-name" itemprop="name">hf1dw</p>
+              <p class="site-description motion-element" itemprop="description">Good habits are more important than hard work</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">49</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">43</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">39</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/hf1dw" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i></a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.jianshu.com/u/41daca7ad841" target="_blank" title="简书">
+                      
+                        <i class="fa fa-fw fa-heartbeat"></i></a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-[object Object]"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">©2019 by hf1dw</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/love.js"></script>
